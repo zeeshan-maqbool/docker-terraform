@@ -5,7 +5,14 @@ terraform {
       version = "3.0.2"
     }
   }
+  backend "s3" {
+    bucket         = "zeeshan-test-bucket-22222"
+    key            = "terraform-backend/atlantis-test.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-lock"
+  }
 }
+
 
 variable "id_rsa_path" {
     default = "/home/atlantis/.ssh/id_rsa"
