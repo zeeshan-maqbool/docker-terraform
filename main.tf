@@ -7,6 +7,7 @@ terraform {
   }
 }
 
+
 variable "id_rsa_path" {
     default = "/home/atlantis/.ssh/id_rsa"
 }
