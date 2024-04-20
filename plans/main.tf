@@ -18,12 +18,6 @@ variable "id_rsa_path" {
 }
 
 
-# resource "local_file" "id_rsa" {
-#   filename = var.id_rsa_path
-#   content  = var.id_rsa_data
-#   file_permission = "0600"
-# }
-
 provider "docker" {
   host     = "ssh://ubuntu@ithut.net:22"
   ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null", "-i", var.id_rsa_path]
