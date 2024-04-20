@@ -1,0 +1,30 @@
+version: 3
+projects:
+- name: stage-docker
+  branch: /main/
+  dir: plans/
+  workspace: default
+  autoplan:
+    when_modified: ["*.tf", "../staging.tfvars", ".terraform.lock.hcl"]
+  workflow: staging
+- name: prod-docker
+  branch: /main/
+  dir: plans/
+  workspace: prod
+  autoplan:
+    when_modified: ["*.tf", "../prod.tfvars"]
+  workflow: prod
+
+workflows:
+  staging:
+    plan:
+      steps:
+      - init
+      - plan:
+          extra_args: ["-var-file", "../staging.tfvars"]
+  prod:
+    plan:
+      steps:
+      - init
+      - plan:
+          extra_args: ["-var-file", "../prod.tfvars"]
