@@ -28,7 +28,7 @@ provider "docker" {
 resource "docker_image" "ubuntu" {
   name = "ubuntu:latest"
 }
-
+variable "container_name" {}
 # Create a container
 resource "docker_container" "nginx" {
   image   = docker_image.ubuntu.image_id
