@@ -30,8 +30,8 @@ resource "docker_image" "ubuntu" {
 }
 
 # Create a container
-resource "docker_container" "foo" {
+resource "docker_container" "nginx" {
   image   = docker_image.ubuntu.image_id
-  name    = "foo"
+  name    = "nginx-terraform"
   command = ["sleep", "120"]
 }
