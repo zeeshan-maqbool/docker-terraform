@@ -32,6 +32,6 @@ variable "container_name" {}
 # Create a container
 resource "docker_container" "nginx" {
   image   = docker_image.ubuntu.image_id
-  name    = "nginx-terraform"
+  name    = var.container_name
   command = ["sleep", "120"]
 }
