@@ -1,0 +1,6 @@
+name: Terraform Fmt
+on:
+  - pull_request
+jobs:
+  call-terraform-fmt-workflow:
+    uses: 2uinc/sre-workflows/.github/workflows/terraform-fmt.yml@main
